@@ -56,9 +56,9 @@ function ContactPage() {
                         alt="Contact Us"
                         className="w-full h-40 object-cover rounded-md mb-6"
                     />
-                    <h2 className="text-[2rem] md:text-8xl font-thin text-gray-900 mb-4">Let's Connect</h2>
+                    <h2 className="text-[2rem] md:text-8xl font-thin text-gray-900 mb-4">Lets Connect</h2>
                     <p className="text-[1rem] text-gray-700 mb-6">
-                        Reach out to us and we’ll respond as soon as possible.
+                        Reach out to us and well respond as soon as possible.
                     </p>
 
                     {/* Form */}
