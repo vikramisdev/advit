@@ -58,7 +58,7 @@ function ContactPage() {
                     />
                     <h2 className="text-[2rem] md:text-8xl font-thin text-gray-900 mb-4">Lets Connect</h2>
                     <p className="text-[1rem] text-gray-700 mb-6">
-                        Reach out to us and well respond as soon as possible.
+                        Reach out to us and we will respond as soon as possible.
                     </p>
 
                     {/* Form */}
@@ -98,15 +98,24 @@ function ContactPage() {
                             ></textarea>
                             {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>}
                         </div>
-                        <Button type="submit" className="w-full bg-black py-5 text-white rounded-none cursor-pointer font-medium" disabled={isLoading}>
+                        <Button
+                            type="submit"
+                            className="w-full cursor-pointer py-6 rounded-none relative overflow-hidden group text-white"
+                            disabled={isLoading}
+                        >
                             {isLoading ? (
-                                <div className="flex items-center gap-2">
-                                    <Loader2 className="animate-spin" size={20} />
-                                    Submitting...
-                                </div>
+                                <>
+                                    <Loader2 className="animate-spin mr-2" size={18} />
+                                    Sending...
+                                </>
                             ) : (
-                                "Send Message"
+                                    <span className="relative z-20 transition-all group-hover:text-black duration-500 ease-in-out">
+                                        Send Message
+                                    </span>
                             )}
+
+                            {/* Green Overlay (No Text) */}
+                            <span className="absolute hidden md:block inset-0 bg-blue-400 h-0 group-hover:h-full transition-all duration-300 ease-in-out"></span>
                         </Button>
                     </form>
                 </div>
@@ -119,7 +128,7 @@ function ContactPage() {
                             alt="Contact Us"
                             className="w-full h-40 object-cover rounded-md mb-6"
                         />
-                        <h3 className="text-[1.5rem] md:text-4xl font-normal text-gray-900 mb-4">Contact Details</h3>
+                        {/* <h3 className="text-[1.5rem] md:text-4xl font-normal text-gray-900 mb-4">Contact Details</h3> */}
                         <div className="flex items-center gap-4 text-gray-700 mb-2">
                             <MapPin className="text-blue-600" size={24} />
                             <p>Nashik 422001, Maharashtra, India</p>

@@ -128,15 +128,24 @@ export default function QuoteForm() {
                             {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
                         </div>
 
-                        <Button type="submit" className="w-full cursor-pointer py-6 rounded-none" disabled={loading}>
+                        <Button
+                            type="submit"
+                            className="w-full cursor-pointer py-6 rounded-none relative overflow-hidden group text-white"
+                            disabled={loading}
+                        >
                             {loading ? (
                                 <>
                                     <Loader2 className="animate-spin mr-2" size={18} />
                                     Submitting...
                                 </>
                             ) : (
-                                "Get Quote"
+                                    <span className="relative z-20 transition-all group-hover:text-black duration-500 ease-in-out">
+                                        Get Quote
+                                    </span>
                             )}
+
+                            {/* Green Overlay (No Text) */}
+                            <span className="absolute hidden md:block inset-0 bg-blue-400 h-0 group-hover:h-full transition-all duration-300 ease-in-out"></span>
                         </Button>
                     </form>
                 </div>

@@ -43,7 +43,7 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`fixed top-0 left-0 w-full bg-opacity-80 text-white backdrop-blur-[2px] md:px-10 px-6 md:pt-8 pt-6 z-50 transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"
+            className={`fixed top-0 left-0 w-full bg-opacity-80 text-black backdrop-blur-[2px] md:px-10 px-6 md:pt-8 pt-6 z-50 transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"
                 }`}
         >
             <div className="container mx-auto flex justify-between items-center">
@@ -54,7 +54,7 @@ export default function Navbar() {
                 </Link>
 
                 {/* Desktop Menu */}
-                <ul className="hidden md:flex space-x-6">
+                <ul className="hidden md:flex space-x-8">
                     {/* Home */}
                     <li>
                         <Link
@@ -72,15 +72,15 @@ export default function Navbar() {
                     <NavigationMenu className="bg-transparent text-white font-medium">
                         <NavigationMenuList className="flex items-center space-x-6">
                             <NavigationMenuItem className="relative">
-                                <NavigationMenuTrigger className="hover:text-[#111] font-normal hover:cursor-pointer transition-all bg-transparent h-fit p-0 m-0 shadow-none text-base focus:ring-0 focus:outline-none focus:bg-transparent data-[state=open]:focus:bg-transparent data-[state=open]:hover:bg-transparent hover:bg-transparent active:bg-transparent">
+                                <NavigationMenuTrigger className="hover:text-[#111] text-black hover:bg-transparent font-normal hover:cursor-pointer transition-all bg-transparent h-fit p-0 m-0 shadow-none text-base focus:ring-0 focus:outline-none focus:bg-transparent data-[state=open]:focus:bg-transparent data-[state=open]:hover:bg-transparent hover:bg-transparent active:bg-transparent">
                                     <Link href="/projects">Projects</Link>
                                 </NavigationMenuTrigger>
                                 <NavigationMenuContent className="bg-white dark:bg-[#111]">
                                     <ul className="space-y-2">
                                         <li><NavigationMenuLink href="/projects/exterior">Exterior</NavigationMenuLink></li>
                                         <li><NavigationMenuLink href="/projects/interior">Interior</NavigationMenuLink></li>
-                                        <li><NavigationMenuLink href="/projects/3d-walkthroughs">3D Walkthroughs</NavigationMenuLink></li>
-                                        <li><NavigationMenuLink href="/projects/graphic-design">Graphic Design</NavigationMenuLink></li>
+                                        <li><NavigationMenuLink href="/projects/walkthroughs">3D Walkthroughs</NavigationMenuLink></li>
+                                        <li><NavigationMenuLink href="/projects/graphicdesign">Graphic Design</NavigationMenuLink></li>
                                     </ul>
                                 </NavigationMenuContent>
                             </NavigationMenuItem>
@@ -116,7 +116,7 @@ export default function Navbar() {
 
                 {/* Hamburger Menu (Mobile) */}
                 <button
-                    className="md:hidden text-white focus:outline-none"
+                    className="md:hidden text-black focus:outline-none"
                     onClick={toggleMenu}
                 >
                     {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -136,40 +136,40 @@ export default function Navbar() {
                     </button>
                 </div>
 
-                {/* Navigation Links (Updated Order) */}
-                <ul className="space-y-6">
+                {/* Navigation Links */}
+                <ul className="space-y-3">
                     {/* Home */}
                     <li>
                         <Link
                             href="/"
                             className="block text-lg hover:text-blue-400 transition"
-                            onClick={toggleMenu} // Close menu on click
+                            onClick={toggleMenu}
                         >
                             Home
                         </Link>
                     </li>
 
-                    {/* mobile projects */}
+                    {/* Projects Section */}
                     <li className="mt-4">
                         <span className="block text-lg font-semibold">Projects</span>
-                        <ul className="mt-2 space-y-2">
+                        <ul className="mt-2 space-y-2 pl-4"> {/* Added left padding */}
                             <li>
-                                <Link href="/exterior" className="block text-lg hover:text-blue-400 transition" onClick={toggleMenu}>
+                                <Link href="/projects/exterior" className="block text-lg hover:text-blue-400 transition" onClick={toggleMenu}>
                                     Exterior
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/interior" className="block text-lg hover:text-blue-400 transition" onClick={toggleMenu}>
+                                <Link href="/projects/interior" className="block text-lg hover:text-blue-400 transition" onClick={toggleMenu}>
                                     Interior
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/3d-walkthroughs" className="block text-lg hover:text-blue-400 transition" onClick={toggleMenu}>
+                                <Link href="/projects/walkthroughs" className="block text-lg hover:text-blue-400 transition" onClick={toggleMenu}>
                                     3D Walkthroughs
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/graphic-design" className="block text-lg hover:text-blue-400 transition" onClick={toggleMenu}>
+                                <Link href="/projects/graphicdesign" className="block text-lg hover:text-blue-400 transition" onClick={toggleMenu}>
                                     Graphic Design
                                 </Link>
                             </li>

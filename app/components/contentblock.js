@@ -41,7 +41,7 @@ const ContentBlock = ({ imageSrc, title, description, reverseLayout = false, red
                 viewport={{ once: false, amount: 0.3 }} // 👈 Ensures text also replays
                 className="w-full md:w-1/2 text-center md:text-left"
             >
-                <h2 className="md:text-8xl font-thin mb-4">{title}</h2>
+                <h2 className="md:text-8xl text-3xl font-thin mb-4">{title}</h2>
                 <p className="text-gray-500 mb-6 md:text-lg">{description}</p>
                 <a
                     href={redirectUrl}
