@@ -24,7 +24,7 @@ export default function Services() {
             style={{ y, opacity }}
             className="mx-auto md:px-6 py-12 space-y-12 mt-6 bg-gray-50 dark:bg-black"
         >
-            <h1 className="text-4xl font-bold mb-8 mx-6">Our Interior Services</h1>
+            {/* <h1 className="text-4xl font-bold mb-8 mx-6">Our Interior Services</h1> */}
             {servicesData.map((service) => (
                 <ContentBlock key={service.id} {...service} />
             ))}

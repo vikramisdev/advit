@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from "framer-motion"
+import { ArrowDown } from 'lucide-react';
 
 export default function HeroSection() {
     const ref = useRef(null);
@@ -41,7 +42,7 @@ export default function HeroSection() {
                     initial={{ y: 50, opacity: 0, scale: 0.8 }}
                     animate={{ y: 0, opacity: 1, scale: 1 }}
                     transition={{ duration: 1.2, ease: "easeOut" }}
-                    className="relative"
+                    className="relative flex flex-col items-center"
                 >
                     <Image
                         src="/images/advit_center.avif"

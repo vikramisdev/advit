@@ -39,10 +39,10 @@ const ContentBlock = ({ imageSrc, title, description, reverseLayout = false, red
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 viewport={{ once: false, amount: 0.3 }} // 👈 Ensures text also replays
-                className="w-full md:w-1/2 text-center md:text-left"
+                className="w-full md:w-1/2 text-left"
             >
-                <h2 className="md:text-8xl text-3xl font-thin mb-4">{title}</h2>
-                <p className="text-gray-500 mb-6 md:text-lg">{description}</p>
+                <h2 className="md:text-8xl text-left text-3xl font-thin mb-4">{title}</h2>
+                <p className="text-gray-500 mb-6 md:text-lg text-justify">{description}</p>
                 <a
                     href={redirectUrl}
                     className="group inline-flex items-center border-2 dark:border-white px-4 py-2 gap-x-3 rounded-full text-blue-600 md:hover:bg-white transition"

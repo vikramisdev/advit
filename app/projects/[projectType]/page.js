@@ -19,7 +19,7 @@ function SubProjectPage() {
         <div>
             <Navbar />
 
-            <div className="relative bg-cover bg-center flex justify-between px-8 flex-col md:flex-row md:px-28 py-24 md:gap-x-24 gap-y-6">
+            <div className="relative bg-cover bg-center flex justify-between px-8 flex-col md:flex-row md:px-28 py-24 mt-12 md:gap-x-24 gap-y-6">
                 <h1 className="text-6xl font-normal uppercase">{project.name}</h1>
                 <h1 className="text-2xl font-thin">{project.description}</h1>
             </div>
@@ -33,7 +33,6 @@ function SubProjectPage() {
                             <motion.div
                                 key={index}
                                 className="overflow-hidden shadow-lg cursor-pointer group bg-black"
-                                onClick={() => openDialog(index)}
                                 initial={{ opacity: 0, y: 50 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, ease: "easeOut" }}
@@ -60,7 +59,6 @@ function SubProjectPage() {
                             <motion.div
                                 key={index}
                                 className="overflow-hidden shadow-lg cursor-pointer group bg-black"
-                                onClick={() => openDialog(index)}
                                 initial={{ opacity: 0, y: 50 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, ease: "easeOut" }}
