@@ -72,7 +72,7 @@ export default function Navbar() {
                     <NavigationMenu className="bg-transparent text-white font-medium">
                         <NavigationMenuList className="flex items-center space-x-6">
                             <NavigationMenuItem className="relative">
-                                <NavigationMenuTrigger className="hover:text-[#111] text-black hover:bg-transparent font-normal hover:cursor-pointer transition-all bg-transparent h-fit p-0 m-0 shadow-none text-base focus:ring-0 focus:outline-none focus:bg-transparent data-[state=open]:focus:bg-transparent data-[state=open]:hover:bg-transparent hover:bg-transparent active:bg-transparent">
+                                <NavigationMenuTrigger className="hover:text-[#111] text-black font-normal hover:cursor-pointer transition-all bg-transparent h-fit p-0 m-0 shadow-none text-base focus:ring-0 focus:outline-none focus:bg-transparent data-[state=open]:focus:bg-transparent data-[state=open]:hover:bg-transparent hover:bg-transparent active:bg-transparent">
                                     <Link href="/projects">Projects</Link>
                                 </NavigationMenuTrigger>
                                 <NavigationMenuContent className="bg-white dark:bg-[#111]">
