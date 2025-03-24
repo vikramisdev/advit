@@ -61,10 +61,12 @@ export default function Navbar() {
         >
             <div className="container mx-auto flex justify-between items-center">
                 {/* Logo */}
-                <Link href="/" className="text-xl">
-                    <span className="text-blue-400 font-light">Advit</span>{" "}
-                    <span className="font-medium dark:text-white">Design Studio</span>
-                </Link>
+                {pathname !== "/about" ?
+                    <Link href="/" className="text-xl">
+                        <span className="text-blue-400 font-bold">Advit</span>{" "}
+                        <span className="font-medium dark:text-white">Design Studio</span>
+                    </Link> : <span></span>
+                }
 
                 {/* Desktop Menu */}
                 <ul className="hidden md:flex space-x-8 dark:text-white">
@@ -131,7 +133,7 @@ export default function Navbar() {
 
                 {/* Hamburger Menu (Mobile) */}
                 <button
-                    className="md:hidden text-black focus:outline-none"
+                    className="md:hidden text-black dark:text-white focus:outline-none"
                     onClick={toggleMenu}
                 >
                     {isMenuOpen ? <X size={28} /> : <Menu size={28} />}

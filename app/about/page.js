@@ -7,18 +7,18 @@ function Page() {
             <Navbar />
             <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 md:gap-12">
                 {/* Left - Image */}
-                <div className="w-full md:w-1/2">
+                <div className="w-full md:w-2/4 bg-red-400">
                     <img
-                        src="https://images.pexels.com/photos/19803079/pexels-photo-19803079/free-photo-of-woman-drinking-coffee-with-milk.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                        src="https://img.freepik.com/free-photo/ai-generated-modern-styled-entryway_23-2150692325.jpg?t=st=1742826573~exp=1742830173~hmac=af3d6113df760c133b217d6c52ab8814b331658de35afe5d0547fadfe697b4c5&w=740"
                         alt="About Image"
-                        className="w-full md:h-[100vh] h-[calc(100vh/2)]"
+                        className="md:h-[100vh] w-full h-[20rem] md:h-auto"
                     />
                 </div>
 
                 {/* Right - Text Content */}
-                <div className="w-full md:w-1/2 px-8 md:px-0 py-4 md:py-0">
+                <div className="w-full px-8 md:px-0 py-4 md:py-0">
                     <h2 className="md:text-8xl text-4xl font-normal text-gray-800 mb-4 dark:text-gray-300">About</h2>
-                    <h3 className="text-2xl font-semibold text-gray-600 dark:text-gray-400 mb-3">Advit is an architectural design & motion studio based in India.</h3>
+                    <h3 className="text-2xl font-semibold text-gray-600 dark:text-gray-400 mb-3"><span className="text-blue-400">Advit</span> is an architectural design & motion studio based in India.</h3>
                     <p className="text-gray-600 dark:text-gray-400 text-lg">
                         Advit is one of the leading architectural visualization firms in India. Advit specializes in creating realistic illustrations for various sectors, including Residential, Commercial, Industrial, and more.
                         <br /><br />

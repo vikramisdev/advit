@@ -63,7 +63,7 @@ function SubProjectPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, ease: "easeOut" }}
                                 viewport={{ once: true }}
-                            >S
+                            >
                                 <motion.img
                                     src={`${project.images}img (${index + 1}).jpg`}
                                     alt={`Project Image ${index + 1}`}

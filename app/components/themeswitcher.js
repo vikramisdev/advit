@@ -18,7 +18,7 @@ const ThemeSwitcher = () => {
     return (
         <button
             onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
-            className="relative flex items-center w-[48px] h-[24px] px-1 rounded-full cursor-pointer bg-gray-300 dark:bg-gray-700 transition-colors"
+            className="relative flex items-center w-[48px] h-[24px] px-1 rounded-full cursor-pointer bg-gray-300 dark:bg-[#555] transition-colors"
         >
             <Sun
                 size={14}
