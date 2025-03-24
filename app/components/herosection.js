@@ -49,7 +49,7 @@ export default function HeroSection() {
                         alt="Logo"
                         width={200}
                         height={200}
-                        className="md:size-96"
+                        className="md:size-96 dark:invert-100"
                     />
                 </motion.div>
             </motion.div>

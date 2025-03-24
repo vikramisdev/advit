@@ -17,9 +17,9 @@ function Page() {
 
                 {/* Right - Text Content */}
                 <div className="w-full md:w-1/2 px-8 md:px-0 py-4 md:py-0">
-                    <h2 className="md:text-8xl text-4xl font-normal text-gray-800 mb-4">About</h2>
-                    <h3 className="text-2xl font-semibold text-gray-600 mb-3">Advit is an architectural design & motion studio based in India.</h3>
-                    <p className="text-gray-600 text-lg">
+                    <h2 className="md:text-8xl text-4xl font-normal text-gray-800 mb-4 dark:text-gray-300">About</h2>
+                    <h3 className="text-2xl font-semibold text-gray-600 dark:text-gray-400 mb-3">Advit is an architectural design & motion studio based in India.</h3>
+                    <p className="text-gray-600 dark:text-gray-400 text-lg">
                         Advit is one of the leading architectural visualization firms in India. Advit specializes in creating realistic illustrations for various sectors, including Residential, Commercial, Industrial, and more.
                         <br /><br />
                         We work closely with architects, interior designers, and developers worldwide to understand their needs and transform their ideas, designs, and visions into breathtaking 3D visuals.

@@ -71,7 +71,7 @@ export default function QuoteForm() {
                             <input
                                 type="text"
                                 {...register("name", { required: "Name is required" })}
-                                className="w-full px-4 py-2 border rounded bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500"
+                                className="w-full px-4 py-2 border rounded bg-gray-50 dark:bg-[#111] text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500"
                                 placeholder="Enter your name"
                             />
                             {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
@@ -85,7 +85,7 @@ export default function QuoteForm() {
                                     required: "Email is required",
                                     pattern: { value: /^\S+@\S+$/i, message: "Invalid email format" }
                                 })}
-                                className="w-full px-4 py-2 border rounded bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500"
+                                className="w-full px-4 py-2 border rounded bg-gray-50 dark:bg-[#111] text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500"
                                 placeholder="Enter your email"
                             />
                             {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
@@ -99,7 +99,7 @@ export default function QuoteForm() {
                                     required: "Phone number is required",
                                     pattern: { value: /^[0-9]{10}$/, message: "Enter a valid 10-digit phone number" }
                                 })}
-                                className="w-full px-4 py-2 border rounded bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500"
+                                className="w-full px-4 py-2 border rounded bg-gray-50 dark:bg-[#111] text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500"
                                 placeholder="Enter your phone number"
                             />
                             {errors.phone && <p className="text-red-500 text-sm">{errors.phone.message}</p>}
@@ -110,7 +110,7 @@ export default function QuoteForm() {
                             <input
                                 type="file"
                                 {...register("file", { required: "File is required" })}
-                                className="w-full border rounded py-2 px-4 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                                className="w-full border rounded py-2 px-4 bg-gray-50 dark:bg-[#111] text-gray-900 dark:text-gray-100"
                                 onChange={(e) => setFileName(e.target.files[0]?.name || "")}
                             />
                             {fileName && <p className="text-gray-500 text-sm mt-1">{fileName}</p>}
@@ -121,7 +121,7 @@ export default function QuoteForm() {
                             <label className="block text-gray-700 dark:text-gray-300">Message</label>
                             <textarea
                                 {...register("message", { required: "Message is required" })}
-                                className="w-full px-4 py-2 border rounded bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500"
+                                className="w-full px-4 py-2 border rounded bg-gray-50 dark:bg-[#111] text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500"
                                 rows="4"
                                 placeholder="Enter your message"
                             ></textarea>
@@ -130,7 +130,7 @@ export default function QuoteForm() {
 
                         <Button
                             type="submit"
-                            className="w-full cursor-pointer py-6 rounded-none relative overflow-hidden group text-white"
+                            className="w-full cursor-pointer py-6 rounded-none relative dark:bg-gray-50 dark:text-black overflow-hidden group text-white"
                             disabled={loading}
                         >
                             {loading ? (

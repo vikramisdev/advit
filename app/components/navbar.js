@@ -1,16 +1,20 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Menu, X } from "lucide-react"; // Hamburger & Close Icons
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from "@/components/ui/navigation-menu"; // ShadCN
+import { useTheme } from "next-themes";
+import ThemeSwitcher from "./themeswitcher";
 
 export default function Navbar() {
     const pathname = usePathname();
     const [lastScrollY, setLastScrollY] = useState(0);
     const [isVisible, setIsVisible] = useState(true);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const menuRef = useRef(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -28,33 +32,42 @@ export default function Navbar() {
 
     // Prevent body scrolling when menu is open
     useEffect(() => {
+        function handleClickOutside(event) {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                toggleMenu();
+            }
+        }
+
         if (isMenuOpen) {
-            document.body.style.overflow = "hidden";
+            document.addEventListener("mousedown", handleClickOutside);
+            document.body.style.overflow = "hidden"; // Prevent scrolling
         } else {
-            document.body.style.overflow = "";
+            document.body.style.overflow = ""; // Restore scrolling
         }
 
         return () => {
-            document.body.style.overflow = "";
+            document.removeEventListener("mousedown", handleClickOutside);
+            document.body.style.overflow = ""; // Ensure scrolling is restored
         };
     }, [isMenuOpen]);
+
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
     return (
         <nav
-            className={`fixed top-0 left-0 w-full bg-opacity-80 text-black backdrop-blur-[2px] md:px-10 px-6 md:pt-8 pt-6 z-50 transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"
+            className={`fixed top-0 left-0 w-full bg-opacity-80 text-black backdrop-blur-[2px] md:px-10 px-6 md:pt-8 pt-6 z-50 transition-transform duration-100 ${isVisible ? "translate-y-0" : "-translate-y-full"
                 }`}
         >
             <div className="container mx-auto flex justify-between items-center">
                 {/* Logo */}
                 <Link href="/" className="text-xl">
                     <span className="text-blue-400 font-light">Advit</span>{" "}
-                    <span className="font-medium">Design Studio</span>
+                    <span className="font-medium dark:text-white">Design Studio</span>
                 </Link>
 
                 {/* Desktop Menu */}
-                <ul className="hidden md:flex space-x-8">
+                <ul className="hidden md:flex space-x-8 dark:text-white">
                     {/* Home */}
                     <li>
                         <Link
@@ -72,7 +85,7 @@ export default function Navbar() {
                     <NavigationMenu className="bg-transparent text-white font-medium">
                         <NavigationMenuList className="flex items-center space-x-6">
                             <NavigationMenuItem className="relative">
-                                <NavigationMenuTrigger className="hover:text-blue-400 text-black font-normal hover:cursor-pointer transition-all bg-transparent h-fit p-0 m-0 shadow-none text-base focus:ring-0 focus:outline-none focus:bg-transparent data-[state=open]:focus:bg-transparent data-[state=open]:hover:bg-transparent hover:bg-transparent active:bg-transparent">
+                                <NavigationMenuTrigger className="hover:text-blue-400 dark:text-white text-black font-normal hover:cursor-pointer transition-all bg-transparent h-fit p-0 m-0 shadow-none text-base focus:ring-0 focus:outline-none focus:bg-transparent data-[state=open]:focus:bg-transparent data-[state=open]:hover:bg-transparent hover:bg-transparent active:bg-transparent">
                                     <Link href="/projects">Projects</Link>
                                 </NavigationMenuTrigger>
                                 <NavigationMenuContent className="bg-white dark:bg-[#111]">
@@ -112,6 +125,8 @@ export default function Navbar() {
                             Contact
                         </Link>
                     </li>
+
+                    <ThemeSwitcher />
                 </ul>
 
                 {/* Hamburger Menu (Mobile) */}
@@ -125,11 +140,12 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             <div
-                className={`fixed top-0 right-0 h-screen w-64 bg-gray-100 dark:bg-[#111] text-black dark:text-white p-6 shadow-lg transition-transform duration-300 ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+                ref={menuRef}
+                className={`fixed top-0 right-0 h-screen w-64 bg-gray-100 dark:bg-[#111] text-black dark:text-white p-6 shadow-xl transition-all duration-100 transform ${isMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
                     }`}
             >
                 {/* Header with "Advit" and Close Button */}
-                <div className="flex justify-between items-center mb-8">
+                <div className="flex justify-between items-center pb-4 border-b border-gray-300 dark:border-gray-800">
                     <span className="text-xl font-semibold">Advit</span>
                     <button className="text-black dark:text-white" onClick={toggleMenu}>
                         <X size={28} />
@@ -137,22 +153,17 @@ export default function Navbar() {
                 </div>
 
                 {/* Navigation Links */}
-                <ul className="space-y-3">
-                    {/* Home */}
+                <ul className="mt-6 space-y-4">
                     <li>
-                        <Link
-                            href="/"
-                            className="block text-lg hover:text-blue-400 transition"
-                            onClick={toggleMenu}
-                        >
+                        <Link href="/" className="block text-lg font-medium hover:text-blue-500 transition" onClick={toggleMenu}>
                             Home
                         </Link>
                     </li>
 
                     {/* Projects Section */}
-                    <li className="mt-4">
+                    <li>
                         <span className="block text-lg font-semibold">Projects</span>
-                        <ul className="mt-2 space-y-2 pl-4"> {/* Added left padding */}
+                        <ul className="mt-2 space-y-2 pl-5 border-l-2 border-gray-300 dark:border-gray-700">
                             <li>
                                 <Link href="/projects/exterior" className="block text-lg hover:text-blue-400 transition" onClick={toggleMenu}>
                                     Exterior
@@ -176,28 +187,22 @@ export default function Navbar() {
                         </ul>
                     </li>
 
-                    {/* About */}
                     <li>
-                        <Link
-                            href="/about"
-                            className="block text-lg hover:text-blue-400 transition"
-                            onClick={toggleMenu}
-                        >
+                        <Link href="/about" className="block text-lg font-medium hover:text-blue-500 transition" onClick={toggleMenu}>
                             About
                         </Link>
                     </li>
-
-                    {/* Contact */}
                     <li>
-                        <Link
-                            href="/contact"
-                            className="block text-lg hover:text-blue-400 transition"
-                            onClick={toggleMenu}
-                        >
+                        <Link href="/contact" className="block text-lg font-medium hover:text-blue-500 transition" onClick={toggleMenu}>
                             Contact
                         </Link>
                     </li>
                 </ul>
+
+                {/* Theme Switcher */}
+                <div className="mt-6 pt-4 border-t border-gray-300 dark:border-gray-800">
+                    <ThemeSwitcher />
+                </div>
             </div>
         </nav>
     );

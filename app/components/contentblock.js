@@ -11,7 +11,7 @@ const ContentBlock = ({ imageSrc, title, description, reverseLayout = false, red
 
     return (
         <motion.div
-            className={`flex flex-col md:flex-row items-center bg-gray-50 dark:bg-black dark:text-white w-full mx-auto p-6 gap-24
+            className={`flex flex-col md:flex-row items-center bg-gray-50 dark:bg-[#111] dark:text-white w-full mx-auto p-6 gap-24
                 ${reverseLayout ? "md:flex-row-reverse" : ""}`}
         >
             {/* Image Animation */}
@@ -45,9 +45,9 @@ const ContentBlock = ({ imageSrc, title, description, reverseLayout = false, red
                 <p className="text-gray-500 mb-6 md:text-lg text-justify">{description}</p>
                 <a
                     href={redirectUrl}
-                    className="group inline-flex items-center border-2 dark:border-white px-4 py-2 gap-x-3 rounded-full text-blue-600 md:hover:bg-white transition"
+                    className="group inline-flex items-center border-2 dark:border-white px-4 py-2 gap-x-3 rounded-full text-blue-600 md:hover:bg-white dark:md:hover:bg-white transition"
                 >
-                    <span className="font-semibold text-black group-hover:text-black">Know More</span>
+                    <span className="font-semibold text-black group-hover:text-black dark:group-hover:text-black dark:text-gray-50">Know More</span>
                     <ArrowRight className="w-5 h-5 md:group-hover:-rotate-45 transition-all duration-500" />
                 </a>
             </motion.div>
