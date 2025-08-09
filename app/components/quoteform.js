@@ -22,29 +22,31 @@ export default function QuoteForm() {
         try {
             setLoading(true);
 
+            const formData = new FormData();
+            formData.append("name", data.name);
+            formData.append("email", data.email);
+            formData.append("phone", data.phone);
+            formData.append("message", data.message);
+            formData.append("file", data.file[0]); // FileList → first file
+
             const response = await fetch("/api/sendEmail", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
+                body: formData, // ❌ no JSON.stringify, ❌ no Content-Type header
             });
 
             if (!response.ok) throw new Error("Email sending failed");
 
-            toast.success("Quote request submitted successfully!")
-
-            // ✅ Reset form fields and clear file name
+            toast.success("Quote request submitted successfully!");
             reset();
             setFileName("");
-
-            setLoading(false);
         } catch (error) {
             console.error(error);
             toast.error("Failed to send email. Please try again.");
-            setLoading(false);
         } finally {
             setLoading(false);
         }
     };
+
 
     return (
         <div className="bg-gray-50 dark:bg-[#111111] flex items-center justify-center min-h-screen p-6">
@@ -111,9 +113,9 @@ export default function QuoteForm() {
                                 type="file"
                                 {...register("file", { required: "File is required" })}
                                 className="w-full border rounded py-2 px-4 bg-gray-50 dark:bg-[#111] text-gray-900 dark:text-gray-100"
-                                onChange={(e) => setFileName(e.target.files[0]?.name || "")}
+                                onChange={(e) => setFileName(e.target.files[0] || "")}
                             />
-                            {fileName && <p className="text-gray-500 text-sm mt-1">{fileName}</p>}
+                            {fileName.name && <p className="text-gray-500 text-sm mt-1">{fileName.name}</p>}
                             {errors.file && <p className="text-red-500 text-sm">{errors.file.message}</p>}
                         </div>
 

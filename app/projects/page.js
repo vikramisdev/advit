@@ -19,12 +19,12 @@ const projects = [
     },
     {
         name: "3D Walkthroughs",
-        slug: "3d-walkthroughs",
+        slug: "walkthroughs",
         img: "https://images.pexels.com/photos/271667/pexels-photo-271667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
     {
         name: "Graphic Design",
-        slug: "graphic-design",
+        slug: "graphicdesign",
         img: "https://images.pexels.com/photos/1080865/pexels-photo-1080865.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
 ];

@@ -12,7 +12,7 @@ export default function Home() {
     <div className="bg-white dark:bg-[#111]">
       <Navbar />
       <HeroSection />
-      <Marquee className="flex text-xl md:text-3xl">
+      <Marquee className="flex text-xl md:text-5xl">
         <span>
           Expert in 3D Modeling & Rendering • Game-Ready Assets • Architectural Visualization • Photorealistic Texturing • 3D Animation & Motion Graphics • CAD & Product Design • Unreal Engine & Unity Integration • Available for Freelance & Collaboration •
         </span>

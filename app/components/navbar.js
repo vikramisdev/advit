@@ -62,9 +62,9 @@ export default function Navbar() {
             <div className="container mx-auto flex justify-between items-center">
                 {/* Logo */}
                 {pathname !== "/about" ?
-                    <Link href="/" className="text-xl">
-                        <span className="text-blue-400 font-bold">Advit</span>{" "}
-                        <span className="font-medium dark:text-white">Design Studio</span>
+                    <Link href="/" className="text-xl bg-black/60 py-2 px-3 rounded-r-full">
+                        <span className="text-blue-400 font-bold uppercase text-xl">Advit</span>{" "}
+                        <span className="font-regular text-white text-sm">Design Studio</span>
                     </Link> : <span></span>
                 }
 
